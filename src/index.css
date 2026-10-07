@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 84% 5%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+    --primary: 173 78% 26%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 174 62% 40%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 174 62% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 173 78% 26%;
+    --radius: 0.5rem;
+    --sidebar-background: 222 84% 5%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 173 78% 26%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 33% 12%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 217 33% 15%;
+    --sidebar-ring: 173 78% 26%;
+    --surface: 210 33% 99%;
+    --surface-foreground: 222 84% 5%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --info: 199 89% 48%;
+  }
+
+  .dark {
+    --background: 222 84% 5%;
+    --foreground: 210 40% 98%;
+    --card: 217 33% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 217 33% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 173 78% 26%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 174 62% 40%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 217 33% 15%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 174 62% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 173 78% 26%;
+    --surface: 217 33% 10%;
+    --surface-foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  }
+
+  /* Hide scrollbar globally */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.2);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.4);
+  }
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.2) transparent;
+  }
+}
+
+@layer utilities {
+  .container-main {
+    @apply mx-auto w-[90vw] max-w-[1480px];
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+  .card-surface {
+    @apply bg-card rounded-xl border border-border shadow-sm;
+  }
+  .card-surface-hover {
+    @apply bg-card rounded-xl border border-border shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20;
+  }
+  .stat-card {
+    @apply bg-card rounded-xl border border-border p-6 shadow-sm;
+  }
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  .dashboard-card {
+    @apply bg-card rounded-xl border border-border p-5 shadow-sm;
+  }
+}
